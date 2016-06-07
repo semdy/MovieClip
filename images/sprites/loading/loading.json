@@ -1,0 +1,16 @@
+{"mc":{
+	"mc_loading":{
+		"frameRate":100,
+		"frames":[
+			{
+				"x":0,
+				"y":0,
+				"duration": 0.8
+			},
+			{
+				"x":0,
+				"y":0,
+				"duration": 0.8
+			}
+		]
+}}}
