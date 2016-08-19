@@ -402,7 +402,7 @@
             }
 
             if( frameRate ){
-                this.setFrameRate(frameRate)
+                this.setFrameRate(Math.round(1000/frameRate));
             }
 
             this.setFrame(this.currentFrame);
@@ -462,7 +462,7 @@
             this.RES = _getResData(res, this._resKey, this.el);
             this.currentFrame = 0;
             this.frame = this.getMovieClipData(this._resKey);
-            this.frameRate = this.frame.frameRate || this.frameRate || 0;
+            this.frameRate = Math.round(1000/(this.frame.frameRate||24));
             this.totalFrames = this.frame.frames.length;
 
             if( frameRate ){
@@ -476,7 +476,7 @@
 
             if( res == undefined ) return;
 
-            this._timer.delay = (resItem.duration || 0)*50 || this.frameRate;
+            this._timer.delay = (resItem.duration || 0) * this.frameRate;
 
             this.el.style.width = res.w + "px";
             this.el.style.height = res.h + "px";
@@ -490,7 +490,7 @@
         setFrameByPath: function( index ){
             var resItem = this.frame.frames[index]||{};
 
-            this._timer.delay = (resItem.duration || 0)*50 || this.frameRate;
+            this._timer.delay = (resItem.duration || 0) * this.frameRate;
 
             this.el.style.marginLeft = (resItem.x || 0) + "px";
             this.el.style.marginTop = (resItem.y || 0) + "px";
@@ -564,7 +564,8 @@
                 resFrames.push({
                     res: uid,
                     x: 0,
-                    y: 0
+                    y: 0,
+                    duration: 1
                 });
 
                 resObj[uid] = {
@@ -576,7 +577,8 @@
             });
 
             resCfg.mc[resKey] = {
-                frames: resFrames
+                frames: resFrames,
+                frameRate: 24
             };
 
             resCfg.res = resObj;
