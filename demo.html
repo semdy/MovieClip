@@ -103,7 +103,7 @@
 
     function setRabbitMC1(){
         var mcRabbit1 = new MovieClip('rabbit_big_png', rightRunningMap, 'bigRunning', 'rabbit1');
-        mcRabbit1.gotoAndPlay(1, -1, 80);
+        mcRabbit1.gotoAndPlay(1, -1, 20);
         mcRabbit1.el.onclick = function () {
             if( mcRabbit1.isPlaying ){
                 mcRabbit1.pause();
@@ -120,7 +120,7 @@
         var distance = 300;
         var isPaused = false;
         var mcRabbit2 = new MovieClip('rabbit_big_png', rightRunningMap, 'rightRunning', 'rabbit2');
-        mcRabbit2.gotoAndPlay(1, -1, 50);
+        mcRabbit2.gotoAndPlay(1, -1, 24);
         mcRabbit2.on('enterframe', function(currentFrame, time){
             var ratio = time/duration;
             if( ratio > 1 ){
@@ -146,12 +146,12 @@
 
     function setRabbitMC3(){
         var mcRabbit3 = new MovieClip('rabbit_win_png', rabbitWinMap, 'winRunning', 'rabbit3');
-        mcRabbit3.gotoAndPlay(1, 3, 200);
+        mcRabbit3.gotoAndPlay(1, 3, 5);
     }
 
     function setRabbitMC4(){
         var mcRabbit4 = new MovieClip('rabbit_lose_png', rabbitLoseMap, 'loseRunning', 'rabbit4');
-        mcRabbit4.gotoAndPlay(1, 1, 200);
+        mcRabbit4.gotoAndPlay(1, 1, 5);
     }
 
 </script>
